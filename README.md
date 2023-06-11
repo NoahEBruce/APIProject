@@ -1,3 +1,6 @@
+
+# This is a project created as part of a DevOps class at Texas A&M with a group of 6 people. Below is general information about some of the phases of the project as the class went. 
+
 # Group Project 10
 
 ## Deploy your API service to GCPUse Docker to orchestrate the API service components
