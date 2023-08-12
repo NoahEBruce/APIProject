@@ -6,7 +6,7 @@ import redis
 from redis import Redis, RedisError
 import sys
 
-COMMAND = sys.argv[1]
+COMMAND = sys.argv[1:]
 COMMAND2 = sys.argv[2]
 
 print(" ")
@@ -25,4 +25,3 @@ md5_hash = hashlib.md5(s.encode()).hexdigest()
 
 print("input:", s)
 print("output:", md5_hash)
-
