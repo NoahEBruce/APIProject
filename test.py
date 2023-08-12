@@ -6,18 +6,12 @@ import redis
 from redis import Redis, RedisError
 import sys
 
-n = len(sys.argv)
-
-if n < 3:
-    print("Usage: python script.py arg1 arg2")
-    sys.exit(1)
-    
-COMMAND = sys.argv[1]
-COMMAND2 = sys.argv[2]
+COMMAND = sys.argv[1:]
+COMMAND2 = sys.argv[2:]
 
 print(" ")
 
-
+n = len(sys.argv)
 
 for x in range(0, n):
     print(sys.argv[x], x)
