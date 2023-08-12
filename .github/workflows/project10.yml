@@ -28,7 +28,7 @@ jobs:
       
       - name: Run tests
         run: |
-          python test.py
+          python test.py COMMAND COMMAND2
           python test_api.py
           
       - name: Build Docker image
