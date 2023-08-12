@@ -6,9 +6,6 @@ import redis
 from redis import Redis, RedisError
 import sys
 
-COMMAND = sys.argv[0:]
-COMMAND2 = sys.argv[1]
-
 print(" ")
 
 n = len(sys.argv)
@@ -16,11 +13,19 @@ n = len(sys.argv)
 for x in range(0, n):
     print(sys.argv[x], x)
 
-
 print(" ")
 
-s = COMMAND2
+if len(sys.argv) < 3:
+    print("Please provide at least two command-line arguments.")
+    sys.exit(1)
 
+COMMAND = sys.argv[1]
+COMMAND2 = sys.argv[2]
+
+print("Input 1:", COMMAND)
+print("Input 2:", COMMAND2)
+
+s = COMMAND2
 md5_hash = hashlib.md5(s.encode()).hexdigest()
 
 print("input:", s)
