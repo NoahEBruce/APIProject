@@ -48,7 +48,7 @@ jobs:
       - name: Authenticate with Google Cloud SDK
         uses: google-github-actions/auth@v1
         with:
-          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          workload_identity_provider: true
     
       - name: Deploy to GCP
         uses: google-github-actions/deploy-appengine@v1.2.7
