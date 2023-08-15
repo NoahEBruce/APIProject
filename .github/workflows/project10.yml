@@ -6,8 +6,10 @@ on:
       - main
 
 jobs:
+  
   build:
     runs-on: ubuntu-latest
+
     
     steps:
       - name: Checkout code
@@ -46,6 +48,7 @@ jobs:
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapi:latest
 
       - name: Authenticate with Google Cloud SDK
+        id: 'auth'
         uses: google-github-actions/auth@v1
         with:
           #project_id: ${{ secrets.GCP_PROJECT_ID }}
