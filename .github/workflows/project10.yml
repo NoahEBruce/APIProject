@@ -6,7 +6,14 @@ on:
       - main
 
 jobs:
-  
+  job_id:
+    # ...
+
+    # Add "id-token" with the intended permissions.
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      
   build:
     runs-on: ubuntu-latest
 
@@ -47,9 +54,9 @@ jobs:
           echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapi:latest
 
-      - name: Authenticate with Google Cloud SDK
-        id: 'auth'
-        uses: google-github-actions/auth@v1
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
         with:
           #project_id: ${{ secrets.GCP_PROJECT_ID }}
           #credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
