@@ -68,7 +68,9 @@ jobs:
           GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
         run: |-
           docker tag myapi:latest gcr.io/neat-bliss-384416/myapi:latest
+          docker tag myapi:latest gcr.io/neat-bliss-384416/myapi:$GIT_TAG
           docker push gcr.io/neat-bliss-384416/myapi:latest
+          docker push gcr.io/neat-bliss-384416/myapi:$GIT_TAG
 
       - name: Push Docker Image to Artifact Registry
         env:
