@@ -55,8 +55,11 @@ jobs:
         with:
           #project_id: ${{ secrets.GCP_PROJECT_ID }}
           #credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          token_format: 'id_token'
           workload_identity_provider: '${ secrets.WIF_Provider }}'
           service_account: '${{ secrets.SA_EMAIL }}'
+          id_token_audience: 'https://myapi-dot-neat-bliss-384416.us-central1.r.appspot.com'
+          id_token_include_email: true
     
       - name: Deploy Docker image to GCP
         run: |
