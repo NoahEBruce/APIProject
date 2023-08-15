@@ -63,13 +63,13 @@ jobs:
           gcloud auth configure-docker --quiet
           gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
 
-      - name: Deploy to Cloud Run
-        run: |
-          gcloud run deploy myapi \
-            --image=${{ secrets.DOCKERHUB_USERNAME }}/myapi:${{ github.sha }} \
-            --platform=managed \
-            --region=us-central1 \
-            --allow-unauthenticated
+      - name: Deploy to GCP
+        uses: google-github-actions/deploy-appengine@v1.2.7
+        with:
+          region: us-central1
+          app: myapi
+          image: myapi:latest
+
         env:
           pythonLocation: /opt/hostedtoolcache/Python/3.7.16/x64
           LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.7.16/x64/lib
