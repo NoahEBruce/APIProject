@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  myapi:
+    build: .
+#    image: andersoncolleen/projectgcp:v1
+    ports:
+      - "80:4000"
+    networks: 
+      - tcmgnet
+  redis-server:
+    image: "redis:alpine"
+    networks:
+      - tcmgnet
+      
+networks:
+  tcmgnet:
