@@ -63,18 +63,4 @@ jobs:
           gcloud auth configure-docker --quiet
           gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
     
-      - name: Push Docker Image to Container Registry (GCR)
-        env:
-          GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
-        run: |-
-          docker tag myapi:latest gcr.io/neat-bliss-384416/myapi:latest
-          docker tag myapi:latest gcr.io/neat-bliss-384416/myapi:$GIT_TAG
-          docker push gcr.io/neat-bliss-384416/myapi:latest
-          docker push gcr.io/neat-bliss-384416/myapi:$GIT_TAG
-
-      - name: Push Docker Image to Artifact Registry
-        env:
-          GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
-        run: |-
-          docker tag myapi:latest us-west2-docker.pkg.dev/neat-bliss-384416/images/myapi:latest
-          docker push us-west2-docker.pkg.dev/$PROJECT_ID/images/myapi:latest
+    
