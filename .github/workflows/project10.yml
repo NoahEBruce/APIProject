@@ -64,6 +64,7 @@ jobs:
           region: us-central1
           app: myapi
           image: myapi:latest
+          audience: https://us-central1-neat-bliss-384416.cloudfunctions.net/
 
         env:
           pythonLocation: /opt/hostedtoolcache/Python/3.7.16/x64
