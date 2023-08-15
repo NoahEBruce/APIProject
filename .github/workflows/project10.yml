@@ -6,11 +6,12 @@ on:
       - main
 
 jobs:
-  
-    
+
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     
     steps:
       - name: Checkout code
