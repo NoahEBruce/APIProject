@@ -38,9 +38,13 @@ jobs:
       - name: Login to Dockerhub
         run: |
             echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      
       - name: Push Docker image
         run: |
-          docker push myapi:latest
+          docker tag myapi:latest ${{ secrets.DOCKERHUB_USERNAME }}/myapi:latest
+          echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapi:latest
+
       - name: Deploy to GCP
         uses: google-github-actions/deploy-appengine@v1.2.7
         with:
