@@ -46,7 +46,7 @@ jobs:
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapi:latest
 
       - name: Authenticate with Google Cloud SDK
-        uses: google-github-actions/auth@v0.5
+        uses: google-github-actions/auth@v1
         with:
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
     
