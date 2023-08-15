@@ -61,6 +61,7 @@ jobs:
       - name: Deploy to GCP
         uses: google-github-actions/deploy-appengine@v1.2.7
         with:
+          project_id: neat-bliss-384416
           region: us-central1
           app: myapi
           image: myapi:latest
