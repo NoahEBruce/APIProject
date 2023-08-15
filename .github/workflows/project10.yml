@@ -59,7 +59,7 @@ jobs:
           service_account: '${{ secrets.SA_EMAIL }}'
     
       - name: Deploy to GCP
-        uses: google-github-actions/deploy-appengine@v1.2.7
+        uses: google-github-actions/deploy-appengine@v1
         with:
           project_id: neat-bliss-384416
           region: us-central1
