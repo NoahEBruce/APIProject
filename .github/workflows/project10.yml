@@ -49,8 +49,7 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
-          workload_identity_provider: true
-          service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }} 
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
     
       - name: Deploy to GCP
         uses: google-github-actions/deploy-appengine@v1.2.7
