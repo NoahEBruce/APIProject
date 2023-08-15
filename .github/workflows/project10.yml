@@ -49,7 +49,7 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           workload_identity_provider: true
-          service_account: noahebruce@gmail.com
+          service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}  
     
       - name: Deploy to GCP
         uses: google-github-actions/deploy-appengine@v1.2.7
